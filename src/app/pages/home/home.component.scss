@@ -1,0 +1,37 @@
+.homeComponent {
+  .navBar{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    background-color: hsla(0,0%,100%,.8);
+    /*background-color: hsla(45, 100%, 50%,.8);*/
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid #92977E;
+
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+    .navbarIcon{
+      margin-left: 15px;
+    }
+  }
+
+  .homeBody {
+    margin-top: 75px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+
+    .icon {
+      transform: scale(.8);
+    }
+
+    .filmTitle {
+      font-size: 18px;
+    }
+
+    .filmImage {
+      width: 400px;
+      height: 561px;
+    }
+  }
+}
