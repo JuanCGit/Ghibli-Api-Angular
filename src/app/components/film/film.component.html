@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="filmTitle">
+      {{film.title}}
+      <mat-icon class="icon cursorPointer" (click)="editFilm()" aria-hidden="false" aria-label="Edit icon" fontIcon="edit"></mat-icon>
+      <mat-icon class="icon cursorPointer" (click)="deleteFilm()" aria-hidden="false" aria-label="Delete icon" fontIcon="delete"></mat-icon>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <li>Director: {{film.director}}</li>
+      <li>Original title: {{film.original_title}}</li>
+      <li>Release Date: {{film.release_date}}</li>
+      <span class="cursorPointer" (click)="getDescription()">+ Show more</span><br>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img class="filmImage cursorPointer"  mat-card-image src="{{film.image}}">
+</mat-card>
+

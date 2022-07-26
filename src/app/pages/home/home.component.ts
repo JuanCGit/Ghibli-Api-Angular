@@ -22,19 +22,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getDescription(id: string) {
-    for (let i = 0; i < this.filteredFilms.length; i++) {
-      if(this.filteredFilms[i].id == id) {
-        Swal.fire({
-          title: this.filteredFilms[i].title+' description',
-          html: this.filteredFilms[i].description,
-          imageUrl: this.filteredFilms[i].movie_banner
-        })
-      }
-    }
-  }
-
-  deleteFilm(id: string) {
+  filmDelete(id: string) {
     for (let i = 0; i < this.filteredFilms.length; i++){
       if(this.filteredFilms[i].id == id) {
         this.filteredFilms.splice(i, 1)
@@ -124,107 +112,7 @@ export class HomeComponent implements OnInit {
         movie_banner: newBanner,
         id: newId
       }
-
       this.filteredFilms.push(newFilm)
-    })()
-  }
-
-  editFilm(id: string) {
-
-    let positionArray: number = 0;
-
-    for (let i = 0; i < this.filteredFilms.length; i++){
-      if(this.filteredFilms[i].id == id){
-        positionArray = i;
-      }
-    }
-
-    (async () => {
-      const { value: title } = await Swal.fire({
-        title: 'You are editing ' + this.filteredFilms[positionArray].title + ' title',
-        input: 'text',
-        inputValue: this.filteredFilms[positionArray].title
-      })
-      if (title) {
-        this.filteredFilms[positionArray].title = title;
-      }
-
-      const { value: director } = await Swal.fire({
-        title: 'You are editing '+ this.filteredFilms[positionArray].title + ' director',
-        input: 'text',
-        inputValue: this.filteredFilms[positionArray].director
-      })
-      if (director) {
-        this.filteredFilms[positionArray].director = director;
-      }
-
-      const { value: original_title } = await Swal.fire({
-        title: 'You are editing '+ this.filteredFilms[positionArray].title + ' original title',
-        input: 'text',
-        inputValue: this.filteredFilms[positionArray].original_title
-      })
-      if (original_title) {
-        this.filteredFilms[positionArray].original_title = original_title;
-      }
-
-      const { value: release_date } = await Swal.fire({
-        title: 'You are editing '+ this.filteredFilms[positionArray].title+ ' release date',
-        input: 'text',
-        inputValue: this.filteredFilms[positionArray].release_date
-      })
-      if (release_date) {
-        this.filteredFilms[positionArray].release_date = release_date;
-      }
-
-      const { value: description } = await Swal.fire({
-        title: 'You are editing '+ this.filteredFilms[positionArray].title+ ' description',
-        input: 'text',
-        inputValue: this.filteredFilms[positionArray].description
-      })
-      if (description) {
-        this.filteredFilms[positionArray].description = description;
-      }
-
-      const { value: image } = await Swal.fire({
-        title: 'You are editing '+ this.filteredFilms[positionArray].title + ' image',
-        input: 'url',
-        inputValue: this.filteredFilms[positionArray].image
-      })
-      if (image) {
-        this.filteredFilms[positionArray].image = image;
-      }
-
-      if(title && release_date && original_title && description && image){
-        Swal.fire({
-          icon: 'success',
-          title: 'Film modified succesfully',
-          toast: true,
-          position: 'bottom-end',
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true
-        })
-      }else if(!title || !release_date || !original_title || !description || !image){
-        Swal.fire({
-          icon: 'error',
-          title: "You can't leave empty any field",
-          toast: true,
-          position: 'bottom-end',
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true
-        })
-      }else{
-        Swal.fire({
-          icon: 'error',
-          title: "Something went wrong",
-          toast: true,
-          position: 'bottom-end',
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true
-        })
-      }
     })()
   }
 }
