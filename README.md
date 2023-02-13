@@ -3,15 +3,7 @@
 
 Angular project implementing Ghibli Api
 
-
-
-## Demo
-
-https://ghibliapi.cloudness.es
-
 ## Description
-
-Todas las llamadas se realizan a la siguiente Api: https://ghibliapi.herokuapp.com/films/
 
 En el componente Home se muestra el NavBar y se recorre el array de filteredFilms llamando al componente film por cada película.
 
